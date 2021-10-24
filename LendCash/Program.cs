@@ -23,23 +23,23 @@ namespace LendCash
                 joe.WriteMyInfo();
                 bob.WriteMyInfo();
 
-                Console.WriteLine("Enter an amount: ");
+                Console.Write("Enter an amount: ");
                 string howMuch = Console.ReadLine();
 
                 if (howMuch == "") return;
                 if (int.TryParse(howMuch,out int result))
                 {
-                    Console.WriteLine("Who should give the cash: ");
+                    Console.Write("Who should give the cash: ");
                     string whichGuy = Console.ReadLine();
 
                     if (whichGuy == "joe")
                     {
-                        joe.GiveCash(result);
+                        int cashGiven = joe.GiveCash(result);
                         bob.ReceiveCash(result);
                     }
                     else if (whichGuy == "bob")
                     {
-                        bob.GiveCash(result);
+                        int cashGiven = bob.GiveCash(result);
                         joe.ReceiveCash(result);
                     }
                     else
